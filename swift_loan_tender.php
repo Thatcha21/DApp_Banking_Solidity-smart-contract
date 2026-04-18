@@ -25,7 +25,7 @@ session_start();
 	</script>
 </head>
 
-<body onload="openCity(event, 'Home')">
+<body onload="setActiveTab('Home')">
 	<div class="page-wrapper">
 		<div class="tab">
 			<div class="nav-left">
@@ -34,16 +34,16 @@ session_start();
 				</h3>
 			</div>
 			<div class="nav-center">
-				<button class="tablinks" onclick="openCity(event, 'Home'); ClearSwitchFields();">
+				<button class="tablinks" onclick="setActiveTab('Home'); ClearSwitchFields();">
 					<i class="fa-solid fa-house"></i> Home
 				</button>
-				<button class="tablinks" onclick="openCity(event, 'Loan'); ClearSwitchFields();">
+				<button class="tablinks" onclick="setActiveTab('Loan'); ClearSwitchFields();">
 					<i class="fa-solid fa-coins"></i> Loan
 				</button>
-				<button class="tablinks" onclick="openCity(event, 'Tender'); ClearSwitchFields();">
+				<button class="tablinks" onclick="setActiveTab('Tender'); ClearSwitchFields();">
 					<i class="fa-solid fa-file-contract"></i> Tender
 				</button>
-				<button class="tablinks" onclick="openCity(event, 'Customer Care'); ClearSwitchFields();">
+				<button class="tablinks" onclick="setActiveTab('Customer Care'); ClearSwitchFields();">
 					<i class="fa-solid fa-headset"></i> Customer Care
 				</button>
 			</div>
@@ -285,9 +285,57 @@ session_start();
 
 
 		<div id="Customer Care" class="tabcontent">
-			<div class="customercare">
+
+			<!-- FAQ SECTION -->
+			<div class="faq-section">
+				<h2 class="section-title">Frequently Asked Questions</h2>
+
+				<div class="faq">
+					<p><strong>How secure is DeBank?</strong> — Fully secured using blockchain smart contracts.</p>
+					<p><strong>How long does loan approval take?</strong> — Instant approval after validation.</p>
+					<p><strong>Can I track my tender?</strong> — Yes, all tenders are real-time and transparent.</p>
+					<p><strong>Is my data stored?</strong> — No, only blockchain records are stored securely.</p>
+				</div>
+			</div>
+
+			<!-- CONTACT GRID -->
+			<div class="contact-grid">
+
+				<!-- WRITE TO US -->
+				<div class="contact-card">
+					<i class="fa-solid fa-envelope contact-icon"></i>
+					<h3>Write to Us</h3>
+					<p>
+						DeBank Support Office<br>
+						12 Blockchain Street<br>
+						London 0401 ENF<br>
+						support@debank.com
+					</p>
+				</div>
+
+				<!-- CHAT WITH US -->
+				<div class="contact-card">
+					<i class="fa-solid fa-message contact-icon"></i>
+					<h3>Chat with Us</h3>
+					<p>
+						Need help instantly?<br><br>
+						<a href="#" class="chat-link">Click here to start chat</a>
+					</p>
+				</div>
+
+				<!-- VISIT US -->
+				<div class="contact-card">
+					<i class="fa-solid fa-building contact-icon"></i>
+					<h3>Visit Us</h3>
+					<p>
+						DeBank Global Offices<br>
+						London • Scotland • Paris • New York<br><br>
+						Worldwide branch support available
+					</p>
+				</div>
 
 			</div>
+
 		</div>
 
 		</br>
@@ -309,19 +357,23 @@ session_start();
 	</footer>
 
 	<script>
-		function openCity(evt, cityName) {
-			var i, tabcontent, tablinks;
-			tabcontent = document.getElementsByClassName("tabcontent");
-			for (i = 0; i < tabcontent.length; i++) {
+		function setActiveTab(name) {
+			let tabcontent = document.getElementsByClassName("tabcontent");
+			for (let i = 0; i < tabcontent.length; i++) {
 				tabcontent[i].style.display = "none";
 			}
-			tablinks = document.getElementsByClassName("tablinks");
-			for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			let tablinks = document.getElementsByClassName("tablinks");
+			for (let i = 0; i < tablinks.length; i++) {
+				tablinks[i].classList.remove("active");
 			}
-			document.getElementById(cityName).style.display = "block";
-			evt.currentTarget.className += " active";
-			ClearFields();
+			document.getElementById(name).style.display = "block";
+			// set active button
+			let buttons = document.querySelectorAll(".tablinks");
+			buttons.forEach(btn => {
+				if (btn.innerHTML.includes(name)) {
+					btn.classList.add("active");
+				}
+			});
 		}
 	</script>
 
@@ -762,6 +814,7 @@ session_start();
 			});
 		});
 	</script>
+
 	<script>
 		function loadTenderTable() {
 			$("#tenderTable tbody").empty();
@@ -788,6 +841,7 @@ session_start();
 			});
 		}
 	</script>
+
 	<script>
 		function ClearFields() {
 			let ids = [
