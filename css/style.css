@@ -135,11 +135,6 @@ textarea {
   display: table;
   clear: both;
 }
-.top-row > div {
-  float: left;
-  width: 48%;
-  margin-right: 4%;
-}
 .top-row > div:last-child {
   margin: 0;
 }
@@ -150,9 +145,9 @@ textarea {
   border-radius: 0;
   padding: 15px 0;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: inherit;
   text-transform: uppercase;
-  letter-spacing: .1em;
   background: #1ab188;
   color: #ffffff;
   transition: all 0.5s ease;

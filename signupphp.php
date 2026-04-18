@@ -6,9 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $myusername = mysqli_real_escape_string($db, $_POST['susername']);
    $mypassword = mysqli_real_escape_string($db, $_POST['spassword']);
    $myfname = mysqli_real_escape_string($db, $_POST['sfname']);
-   $mypublickey = mysqli_real_escape_string($db, $_POST['spublickey']);
-   $sql = "INSERT INTO bankdetails (fname, publickey, username, password, sign)
-        VALUES ('$myfname', '$mypublickey', '$myusername', '$mypassword', '')";
+   $sql = "INSERT INTO bankdetails (fname, username, password)
+        VALUES ('$myfname', '$myusername', '$mypassword')";
    $result = mysqli_query($db, $sql);
    header("location: login.html");
 }

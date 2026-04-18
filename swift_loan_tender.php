@@ -14,7 +14,9 @@ session_start();
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@0.20.7/dist/web3.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="swift.css">
 	<script>
 		function logo() {
@@ -24,206 +26,287 @@ session_start();
 </head>
 
 <body onload="openCity(event, 'Home')">
-	<div class="he">
-		<p>
-		<h1>
-			<center>Decentralized Application for Banking</center>
-		</h1>
-		</p>
-		<input type="button" id="logout" onclick="logo()" value=" Log Out">
-	</div>
-	<p>
-	<h1>
-		<center>Welcome <?php
-						echo $_SESSION['login_user'] ?></center>
-	</h1>
-	</p>
-	<div class="tab">
-		<button class="tablinks" onclick="openCity(event, 'Home'); ClearSwitchFields();">
-			<img src="img1.png" height="25px" width="25px " class="w3-round">
-			Home</button>
-		<button class="tablinks" onclick="openCity(event, 'Loan'); ClearSwitchFields();">
-			<img src="img2.jpg" height="25px" width="25px " class="w3-round">
-			Loan</button>
-		<button class="tablinks" onclick="openCity(event, 'Tender'); ClearSwitchFields();">
-			<img src="img3.png" height="25px" width="25px " class="w3-round">
-			Tender</button>
-		<button class="tablinks" onclick="openCity(event, 'Customer Care'); ClearSwitchFields();">
-			<img src="img4.jpg" height="25px" width="25px " class="w3-round">
-			Customer Care</button>
-	</div>
-	<div id="Home" class="tabcontent">
-		<header>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-				</ol>
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner">
-					<div class="item active">
-						<img src="1.jpg" alt="Los Angeles" style="width:100%;">
-					</div>
-					<div class="item">
-						<img src="2.jpg" alt="Chicago" style="width:100%;">
-					</div>
-					<div class="item">
-						<img src="3.jpg" alt="New york" style="width:100%;">
+	<div class="page-wrapper">
+		<div class="tab">
+			<div class="nav-left">
+				<h3 class="app-title">
+					<span class="app-badge">De</span><span class="app-text">Bank</span>
+				</h3>
+			</div>
+			<div class="nav-center">
+				<button class="tablinks" onclick="openCity(event, 'Home'); ClearSwitchFields();">
+					<i class="fa-solid fa-house"></i> Home
+				</button>
+				<button class="tablinks" onclick="openCity(event, 'Loan'); ClearSwitchFields();">
+					<i class="fa-solid fa-coins"></i> Loan
+				</button>
+				<button class="tablinks" onclick="openCity(event, 'Tender'); ClearSwitchFields();">
+					<i class="fa-solid fa-file-contract"></i> Tender
+				</button>
+				<button class="tablinks" onclick="openCity(event, 'Customer Care'); ClearSwitchFields();">
+					<i class="fa-solid fa-headset"></i> Customer Care
+				</button>
+			</div>
+			<div class="nav-right">
+				<div class="user-section">
+					<i class="fa-solid fa-circle-user"></i>
+					<span class="username">
+						<?php echo $_SESSION['login_user']; ?>
+					</span>
+					<div class="divider"></div>
+					<button id="logout" onclick="logo()" class="logout-btn">
+						<i class="fa-solid fa-right-from-bracket"></i>
+						Logout
+					</button>
+				</div>
+			</div>
+		</div>
+		<div id="Home" class="tabcontent">
+			<header>
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="1.jpg" alt="slide">
+							<div class="carousel-overlay">
+								<div class="carousel-content">
+									<h2>Fast & Secure Banking</h2>
+									<p>
+										Experience instant blockchain-powered banking with secure, transparent and real-time transactions.
+									</p>
+									<button class="carousel-btn">Get Started</button>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="2.jpg" alt="slide">
+							<div class="carousel-overlay">
+								<div class="carousel-content">
+									<h2>Advanced Blockchain Security</h2>
+									<p>
+										Your assets are protected with decentralized encryption ensuring maximum trust and data integrity.
+									</p>
+									<button class="carousel-btn">Find out more</button>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img src="3.jpg" alt="slide">
+							<div class="carousel-overlay">
+								<div class="carousel-content">
+									<h2>Smart Investment Solutions</h2>
+									<p>
+										Grow your wealth with intelligent investment options backed by data-driven financial insights.
+									</p>
+									<button class="carousel-btn">Read more</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<!-- Left and right controls -->
-				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="right carousel-control" href="#myCarousel" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right"></span>
-					<span class="sr-only">Next</span>
-				</a>
+			</header>
+			<div class="section-title">
+				Featured News
 			</div>
-		</header>
-		</br>
-		</br>
-		</br>
-		<div class="middle">
-			<div class="vertical-menu">
-				<a href="#" class="active">Check Eligibility</a>
-				<a href="#" onclick="openCity(event, 'Loan')">Personal Loan</a>
-				<a href="#" onclick="openCity(event, 'Loan')">Two Wheeler Loan</a>
-				<a href="#" onclick="openCity(event, 'Loan')">Home Loan</a>
-			</div>
-			<div class="vertical-menu">
-				<a href="#" class="active">Announcements</a>
-				<a href="#">Gail tender Results</a>
-				<a href="#">New Car Loan scheme </a>
-				<a href="#">Isro tender Results</a>
-			</div>
-			<div class="vertical-menu">
-				<a href="#" class="active">Quick Links</a>
-				<a href="#">Apply Now</a>
-				<a href="#">Locate us</a>
-				<a href="#">Products</a>
+			<div class="card-container">
+				<div class="info-card">
+					<img src="cardImage1.jpg" alt="Loan">
+					<div class="card-body">
+						<div class="category">Loan</div>
+						<div class="title">Personal Loan</div>
+						<div class="desc">
+							Apply for quick personal loans with instant approval and minimal documentation.
+							Enjoy flexible repayment options tailored to your needs.
+							Fast approval powered by blockchain verification.
+							Transparent and secure processing system.
+							Instant disbursement with low interest rates.
+						</div>
+						<button class="read-btn">Read more</button>
+					</div>
+				</div>
+
+				<div class="info-card">
+					<img src="cardImage2.jpg" alt="Tender">
+					<div class="card-body">
+						<div class="category">Tender</div>
+						<div class="title">Government Tender</div>
+						<div class="desc">
+							Participate in blockchain-based tender system.
+							Transparent bidding process with secure validation.
+							Smart contract ensures fairness and automation.
+							Real-time tender updates and tracking.
+							Reliable and tamper-proof submission system.
+						</div>
+						<button class="read-btn">Read more</button>
+					</div>
+				</div>
+
+				<div class="info-card">
+					<img src="cardImage3.jpg" alt="Security">
+					<div class="card-body">
+						<div class="category">Security</div>
+						<div class="title">Blockchain Security</div>
+						<div class="desc">
+							Secure decentralized transactions using Ethereum smart contracts.
+							Data integrity ensured using cryptographic hashing.
+							Fully transparent and immutable records.
+							Protection against fraud and tampering.
+							Trusted distributed ledger technology.
+						</div>
+						<button class="read-btn">Find out more</button>
+					</div>
+				</div>
 			</div>
 		</div>
+
+		<div id="Loan" class="tabcontent">
+			<div class="loan-section">
+
+				<!-- LOAN CARD -->
+				<div class="loan-card">
+					<h2 class="loan-title">Get Loan</h2>
+					<div class="loan-form">
+						<div class="loan-input-group">
+							<label>First Name <span class="required">*</span></label>
+							<input id="fName" type="text" placeholder="Enter your name">
+							<span class="error" id="fNameError"></span>
+						</div>
+						<div class="loan-input-group">
+							<label>Loan Amount (GBP) <span class="required">*</span></label>
+							<input id="amt" type="number" placeholder="Enter amount">
+							<span class="error" id="amtError"></span>
+						</div>
+
+						<div class="loan-action">
+							<button id="button" class="loan-btn">Get Loan</button>
+						</div>
+					</div>
+
+					<div id="loanSuccess" class="success-message" style="display:none;">
+						<i class="fa-solid fa-circle-check"></i>
+						Loan request received successfully
+					</div>
+				</div>
+
+				<!-- LOAN LIST -->
+				<div class="loan-card loan-list">
+					<div class="loan-list-header">
+						<h2 class="loan-title">Sanctioned Loans</h2>
+						<button id="butt" class="load-btn">Load Loans</button>
+					</div>
+
+					<div class="loan-content">
+						<span id="countIns" class="count-text"></span>
+						<div class="table-wrapper">
+							<table id="loanTable">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Wallet Address</th>
+										<th>Name</th>
+										<th>Amount</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="Tender" class="tabcontent">
+			<div class="loan-section">
+				<!-- TENDER FORM CARD -->
+				<div class="loan-card">
+					<h2 class="loan-title">Submit Tender</h2>
+
+					<div class="loan-form">
+						<div class="loan-input-group">
+							<label>Organization Name <span class="required">*</span></label>
+							<input id="orgname" type="text" placeholder="Enter organization name" required>
+							<span class="error" id="orgError"></span>
+						</div>
+
+						<div class="loan-input-group">
+							<label>Tender Amount (GBP) <span class="required">*</span></label>
+							<input id="tender_amt" type="number" placeholder="Enter amount" required>
+							<span class="error" id="amtErrorTender"></span>
+						</div>
+
+						<div class="loan-input-group">
+							<label>Tender Duration (Months) <span class="required">*</span></label>
+							<input id="tender_duration" type="number" placeholder="Enter duration" required>
+							<span class="error" id="durError"></span>
+						</div>
+
+						<div class="loan-action">
+							<button type="button" id="tender_button" class="loan-btn">Submit Tender</button>
+						</div>
+					</div>
+
+					<div id="tenderSuccess" class="success-message" style="display:none;"></div>
+				</div>
+
+
+				<!-- TENDER LIST CARD -->
+				<div class="loan-card loan-list">
+					<div class="loan-list-header">
+						<h2 class="loan-title">Tender Details</h2>
+						<button id="tender_but" class="load-btn">Get Winner</button>
+					</div>
+
+					<div class="loan-content">
+						<div id="tenderwinner" style="margin-bottom:10px;"></div>
+
+						<div class="table-wrapper">
+							<table id="tenderTable">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Address</th>
+										<th>Organisation</th>
+										<th>Amount</th>
+										<th>Duration</th>
+										<th>Score</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="Customer Care" class="tabcontent">
+			<div class="customercare">
+
+			</div>
+		</div>
+
 		</br>
 		</br>
-		<footer>
-			<h3>Visit us at </h3>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/facebook.png" width="30px" alt="Facebook" /></a>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/twitter.png" width="30px" alt="Twitter" /></a>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/google.png" width="30px" alt="Googleplus" /></a>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/linkedin.png" width="30px" alt="Linkedin" /></a>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/pinterest.png" width="30px" alt="Pinterest" /></a>
-		</footer>
 	</div>
-
-	<div id="Loan" class="tabcontent">
-		<div class="container">
-
-			<h1>Loanee</h1>
-			<div class="in">
-				<label for="fName" class="col-lg-2 control-label">First Name</label>
-				<input id="fName" type="text">
-			</div>
-			<div class="in">
-				<label for="amt" class="col-lg-2 control-label">Loan Amount(Rupees)</label>
-				<input id="amt" type="text">
-			</div>
-			<div class="in">
-				<button id="button">Update Loanee</button>
-			</div>
-
-			<div class="in">
-				<img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif">
-				<h2 id="idloan"></h2>
-				<span id="instructor"></span>
-			</div>
-
-			<hr>
-			<h1>Sanctioned Loans</h1>
-			<button id="butt">Load Loans</button>
-
-			<span id="countIns"></span>
-
-			<table border="1" width="100%" id="loanTable">
-				<tr>
-					<th>ID</th>
-					<th>Wallet Address</th>
-					<th>Name</th>
-					<th>Amount</th>
-				</tr>
-			</table>
+	<footer class="footer">
+		<div class="footer-left">
+			<p>
+				Copyright © 2026 DeBank Co. Reg. No. 040118082407Z. All Rights Reserved.
+			</p>
 		</div>
-	</div>
-
-	<div id="Tender" class="tabcontent">
-		<div class="container">
-			<h1>Tender Applicant Details</h1>
-			<div class="in">
-				<label for="orgname" class="col-lg-2 control-label">Organization Name</label>
-				<input id="orgname" type="text">
-			</div>
-			<div class="in">
-				<label for="tender_amt" class="col-lg-2 control-label">Tender Amount(Rupees)</label>
-				<input id="tender_amt" type="text">
-			</div>
-			<div class="in">
-				<label for="tender_duration" class="col-lg-2 control-label">Tender Duration(Months)</label>
-				<input id="tender_duration" type="text">
-			</div>
-			<div class="in">
-				<button id="tender_button">Submit Tender</button>
-			</div>
-			<h2 id="done"></h2>
-			<hr>
-			<h1>Tender Details</h1>
-			<button id="tender_but">Get Tender winner</button>
-			<br><br>
-			<table border="1" width="100%" id="tenderTable">
-				<tr>
-					<th>ID</th>
-					<th>Address</th>
-					<th>Organisation</th>
-					<th>Amount</th>
-					<th>Duration</th>
-					<th>Score</th>
-				</tr>
-			</table>
-
-			<br>
-
-			<div id="tenderwinner"></div>
-			<hr>
+		<div class="footer-right">
+			<a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+			<a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+			<a href="#"><i class="fab fa-google fa-2x"></i></a>
+			<a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+			<a href="#"><i class="fab fa-pinterest fa-2x"></i></a>
 		</div>
-	</div>
-
-
-	<div id="Customer Care" class="tabcontent">
-		<div class="customercare">
-			<h1>Contact </h1>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/facebook.png" width="50px" alt="Facebook" /></a>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/twitter.png" width="50px" alt="Twitter" /></a>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/google.png" width="50px" alt="Googleplus" /></a>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/linkedin.png" width="50px" alt="Linkedin" /></a>
-			<a href="#">
-				<img src="https://simplesharebuttons.com/images/somacro/pinterest.png" width="50px" alt="Pinterest" /></a>
-			<h1>Project Developers</h1>
-			<h2>R.G.Thivyavignesh - 106114071</h2>
-			<h2>R.Sharath - 106114086</h2>
-			<h2>K.Venkateshwaran - 106114103</h2>
-		</div>
-	</div>
+	</footer>
 
 	<script>
 		function openCity(evt, cityName) {
@@ -242,8 +325,8 @@ session_start();
 		}
 	</script>
 
-
 	<script>
+		$("#loanSuccess").hide();
 		web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
 		let currentUser = "<?php echo $_SESSION['login_user']; ?>";
 		let users = {
@@ -491,40 +574,35 @@ session_start();
 		]);
 
 		var PNB = PNBContract.at('0xd1fE3a25edCF0b33a2D6e485FDB392aA386538e9');
-		console.log(PNB);
-		var instEvent = PNB.LoaneeInfo({}, 'latest');
-
-		instEvent.watch(function(error, result) {
-			if (result) {
-				if (result.blockHash != $("#insTrans").html())
-					$("#loader").hide();
-
-				//$("#insTrans").html('Block hash: ' + result.blockHash);
-				document.getElementById("insTrans").value = result.blockHash;
-				$("#instructor").html(
-					result.args.fName +
-					'<br><br>' + result.args.pkey +
-					'<br><br>borrowed ' + result.args.amt
-				);
-
-
-				PNB.getid((err, res) => {
-					if (res)
-						$("#idloan").html('Loan Id: ' + res);
-				});
-
-			} else {
-				$("#loader").hide();
-			}
-		});
-
 		$("#button").click(function() {
+
+			let fName = $("#fName").val().trim();
+			let amt = $("#amt").val().trim();
+
+			let isValid = true;
+
+			// Clear old errors
+			$("#fNameError").text("");
+			$("#amtError").text("");
+
+			// First Name validation
+			if (fName === "") {
+				$("#fNameError").text("First name is required");
+				isValid = false;
+			}
+
+			// Amount validation
+			if (amt === "" || isNaN(amt) || parseInt(amt) <= 0) {
+				$("#amtError").text("Enter a valid loan amount");
+				isValid = false;
+			}
+
+			// STOP if invalid
+			if (!isValid) return;
 
 			$("#loader").show();
 
 			let address = selectedAccount;
-			let fName = document.getElementById("fName").value;
-			let amt = document.getElementById("amt").value;
 
 			PNB.setLoanee.sendTransaction(
 				address,
@@ -532,10 +610,29 @@ session_start();
 				parseInt(amt), {
 					from: selectedAccount,
 					gas: 4000000
+				},
+				function(error, result) {
+					if (!error) {
+						$("#loanSuccess").html(`
+							<i class="fa-solid fa-circle-check"></i>
+							Loan request received successfully
+						`).fadeIn();
+						setTimeout(() => {
+							$("#loanSuccess").fadeOut();
+						}, 4000);
+
+						ClearFields();
+					}
 				}
 			);
+		});
 
-			ClearFields();
+		$("#fName").on("input", function() {
+			$("#fNameError").text("");
+		});
+
+		$("#amt").on("input", function() {
+			$("#amtError").text("");
 		});
 
 		var i;
@@ -548,9 +645,12 @@ session_start();
 					return;
 				}
 				let count = res.toNumber ? res.toNumber() : res.c[0];
-				$("#countIns").html(count + " Borrowers");
+				$("#countIns").html("Total of " + count + " borrowers");
 				for (let i = 0; i < count; i++) {
 					PNB.getLoanee(i, (err, loan) => {
+						if (count === 0) {
+							$("#loanTable").html("<tr><td colspan='4'>No loans found</td></tr>");
+						}
 						if (loan) {
 
 							console.log(loan);
@@ -559,7 +659,7 @@ session_start();
                             <td>${i}</td>
                             <td>${loan[0]}</td>
                             <td>${loan[1]}</td>
-                            <td>${loan[2]}</td>
+                            <td>£${Number(loan[2]).toLocaleString()}</td>
                         </tr>
                     `;
 							$("#loanTable").append(row);
@@ -571,22 +671,73 @@ session_start();
 
 
 		$("#tender_button").click(function() {
+
+			let org = $("#orgname").val().trim();
+			let amt = $("#tender_amt").val().trim();
+			let dur = $("#tender_duration").val().trim();
+
+			let isValid = true;
+
+			// clear old errors
+			$("#orgError").text("");
+			$("#amtErrorTender").text("");
+			$("#durError").text("");
+			$("#tenderSuccess").hide();
+
+			// validation
+			if (org === "") {
+				$("#orgError").text("Organization name is required");
+				isValid = false;
+			}
+
+			if (amt === "" || isNaN(amt) || parseInt(amt) <= 0) {
+				$("#amtErrorTender").text("Enter a valid amount");
+				isValid = false;
+			}
+
+			if (dur === "" || isNaN(dur) || parseInt(dur) <= 0) {
+				$("#durError").text("Enter a valid duration");
+				isValid = false;
+			}
+
+			// STOP HERE if invalid
+			if (!isValid) return;
+
 			PNB.setTend.sendTransaction(
 				selectedAccount,
-				$("#orgname").val(),
-				parseInt($("#tender_amt").val()),
-				parseInt($("#tender_duration").val()), {
+				org,
+				parseInt(amt),
+				parseInt(dur), {
 					from: selectedAccount,
 					gas: 4000000
 				},
 				(err, res) => {
-					console.log(res);
-					if (err) {
-						console.log("error in set!");
+					if (!err) {
+						$("#tenderSuccess").html(`
+                    <i class="fa-solid fa-circle-check"></i>
+                    Tender submitted successfully
+                `).fadeIn();
+
+						setTimeout(() => {
+							$("#tenderSuccess").fadeOut();
+						}, 4000);
+
+						ClearFields();
 					}
 				}
 			);
-			ClearFields();
+		});
+
+		$("#orgname").on("input", function() {
+			$("#orgError").text("");
+		});
+
+		$("#tender_amt").on("input", function() {
+			$("#amtErrorTender").text("");
+		});
+
+		$("#tender_duration").on("input", function() {
+			$("#durError").text("");
 		});
 
 		let winnerAddress = "";
@@ -601,10 +752,11 @@ session_start();
 				if (res) {
 					// store winner address
 					winnerAddress = res[0];
-					$("#tenderwinner").html(
-						"<h3>🏆 Winner: " + res[1] + "</h3>"
-					);
-
+					$("#tenderwinner").html(`
+						<div class="success-message">
+							🏆 Winner: <strong>${res[1]}</strong>
+						</div>
+					`);
 					loadTenderTable(); // NEW FUNCTION
 				}
 			});
@@ -612,27 +764,24 @@ session_start();
 	</script>
 	<script>
 		function loadTenderTable() {
-			$("#tenderTable tr:not(:first)").remove();
+			$("#tenderTable tbody").empty();
 			PNB.getendid((err, count) => {
-				if (err) {
-					console.log(err);
-					return;
-				}
+				if (err) return console.log(err);
 				for (let i = 0; i < count; i++) {
 					PNB.getTend(i, (err, tend) => {
 						if (tend) {
-							let isWinner = (tend[0] === winnerAddress);
 							let row = `
-                        <tr class="${isWinner ? 'winner' : ''}">
+                        <tr>
                             <td>${i}</td>
                             <td>${tend[0]}</td>
                             <td>${tend[1]}</td>
-                            <td>${tend[3]}</td>
+                            <td>£${Number(tend[3]).toLocaleString()}</td>
                             <td>${tend[2]}</td>
                             <td>${tend[2] * tend[3]}</td>
                         </tr>
                     `;
-							$("#tenderTable").append(row);
+
+							$("#tenderTable tbody").append(row);
 						}
 					});
 				}
@@ -657,7 +806,6 @@ session_start();
 
 		function ClearSwitchFields() {
 			document.getElementById("idloan").innerHTML = "";
-			document.getElementById("instructor").innerHTML = "";
 			document.getElementById("countIns").innerHTML = "";
 			document.getElementById("tenderwinner").innerHTML = "";
 			document.getElementById("done").innerHTML = "";
