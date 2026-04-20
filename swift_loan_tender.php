@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['login_user'])) {
+	header("Location: login.html");
+	exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,11 +22,6 @@ session_start();
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="swift.css">
-	<script>
-		function logo() {
-			window.location.href = "Login.html";
-		}
-	</script>
 </head>
 
 <body onload="setActiveTab('Home')">
@@ -54,7 +53,7 @@ session_start();
 						<?php echo $_SESSION['login_user']; ?>
 					</span>
 					<div class="divider"></div>
-					<button id="logout" onclick="logo()" class="logout-btn">
+					<button id="logout" onclick="logout()" class="logout-btn">
 						<i class="fa-solid fa-right-from-bracket"></i>
 						Logout
 					</button>
@@ -355,6 +354,12 @@ session_start();
 			<a href="#"><i class="fab fa-pinterest fa-2x"></i></a>
 		</div>
 	</footer>
+
+	<script>
+		function logout() {
+			window.location.href = "logout.php";
+		}
+	</script>
 
 	<script>
 		function setActiveTab(name) {

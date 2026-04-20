@@ -4,59 +4,46 @@
 <head>
   <meta charset="UTF-8">
   <title>Sign-Up/Login Form</title>
-  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body style='background:rgba(19, 35, 47, 0.9)'>
-  <div class="form">
-    <ul class="tab-group">
-      <li class="tab active"><a href="#login">Log In</a></li>
-      <li class="tab "><a href="#signup">Sign Up</a></li>
-    </ul>
-    <div class="tab-content">
-      <div id="login">
-        <form action="loginphp.php" method="post">
-          <div class="field-wrap">
-            <label>
-              Username<span class="req"></span>
-            </label>
-            <input type="text" name="lusername" required autocomplete="off" />
-          </div>
-          <div class="field-wrap">
-            <label>
-              Password<span class="req"></span>
-            </label>
-            <input type="password" name="lpassword" required autocomplete="off" />
-          </div>
-          <input class="button button-block" type="submit" /></button>
-        </form>
-      </div>
-      <div id="signup">
-        <form action="signupphp.php" method="post">
-          <div class="top-row">
+<body>
+  <div class="login-wrapper">
+    <div class="form">
+      <ul class="tab-group">
+        <li class="tab active"><a href="#login">Log In</a></li>
+        <li class="tab "><a href="#signup">Sign Up</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="login">
+          <form action="loginphp.php" method="post">
             <div class="field-wrap">
-              <label>
-                First Name<span class="req"></span>
-              </label>
-              <input type="text" name="sfname" required autocomplete="off" />
+              <input type="text" name="lusername" placeholder="Enter username" required autocomplete="off" />
             </div>
             <div class="field-wrap">
-              <label>
-                Username<span class="req"></span>
-              </label>
-              <input type="text" name="susername" required autocomplete="off" />
+              <input type="password" name="lpassword" placeholder="Enter password" required autocomplete="off" />
             </div>
+            <button class="button-block" type="submit">Log In</button>
+          </form>
+        </div>
+        <div id="signup">
+          <form action="signupphp.php" method="post">
+            <div class="top-row">
+              <div class="field-wrap">
+                <input type="text" name="sfname" placeholder="Enter first name" required autocomplete="off" />
+              </div>
+              <div class="field-wrap">
+                <input type="text" name="susername" placeholder="Enter username" required autocomplete="off" />
+              </div>
 
-            <div class="field-wrap">
-              <label>
-                Set A Password<span class="req"></span>
-              </label>
-              <input type="password" name="spassword" required autocomplete="off" />
-            </div>
-            <button type="submit" class="button button-block" />Sign Up</button>
-        </form>
+              <div class="field-wrap">
+                <input type="password" name="spassword" placeholder="Enter password" required autocomplete="off" />
+              </div>
+              <button type="submit" class="button-block" />Sign Up</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -65,4 +52,5 @@
   <script>
   </script>
 </body>
+
 </html>
