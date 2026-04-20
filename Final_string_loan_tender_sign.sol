@@ -19,10 +19,7 @@ contract Loan is Owned {
     struct Loanee {
         string pkey;
         string fName;
-        string lName;
         uint amt;
-        string authkey;
-        string authsign;
         uint id;
     }
     
@@ -32,37 +29,37 @@ contract Loan is Owned {
     event LoaneeInfo(
         string pkey,
         string fName,
-        string lName,
-        string authkey,
-        string authsign,
         uint amt
     );
     
     uint id;
     
     function getid() view public returns (uint) {
-        return id;
+        return LoaneeAccts.length;
     }
     
-    function setLoanee(string _address, string _fName, string _lName, uint _amt, string _authkey, string _authsign) public {
+    function setLoanee(
+    string _address,
+    string _fName,
+    uint _amt
+        ) public {
+
         var inst = Borrowers[nextId];
-        
+
         inst.pkey = _address;
         inst.fName = _fName;
-        inst.lName = _lName;
         inst.amt = _amt;
-        inst.authkey = _authkey;
-        inst.authsign = _authsign;
-        
-        LoaneeAccts.push(_address) - 1;
-        LoaneeInfo(_address, _fName, _lName, _authkey, _authsign, _amt);
+
+        LoaneeAccts.push(_address);
+
+        inst.id = nextId;
         id = nextId;
-        inst.id = id;
+
         nextId++;
-    }
+        }
     
-    function getLoanee(uint id) view public returns (string, string, string, uint, string, string) {
-        return (Borrowers[id].pkey, Borrowers[id].fName, Borrowers[id].lName, Borrowers[id].amt, Borrowers[id].authkey, Borrowers[id].authsign);
+    function getLoanee(uint id) view public returns (string, string, uint) {
+        return (Borrowers[id].pkey, Borrowers[id].fName, Borrowers[id].amt);
     }
     
     function countLoanee() view public returns (uint) {
@@ -86,9 +83,7 @@ contract Loan is Owned {
         string tendpkey,
         string org,
         uint tender_dur,
-        uint tender_amt,
-        string tender_authkey,
-        string tender_authsign
+        uint tender_amt
     );
     
     uint nextTend = 0;
@@ -98,7 +93,7 @@ contract Loan is Owned {
         return tendid;
     }
     
-    function setTend(string _address, string _org, uint _amt, uint _dur, string _authkey, string _authsign) public {
+    function setTend(string _address, string _org, uint _amt, uint _dur) public {
         var inst = Organisation[nextTend];
         
         inst.tendpkey = _address;
@@ -106,11 +101,9 @@ contract Loan is Owned {
         inst.tender_dur = _dur;
         inst.tender_amt = _amt;
         inst.tender_val = _dur * _amt;
-        inst.tender_authkey = _authkey;
-        inst.tender_authsign = _authsign;
         
         TendAccts.push(_address) - 1;
-        TendInfo(_address, _org, _dur, _amt, _authkey, _authsign);
+        TendInfo(_address, _org, _dur, _amt);
         tendid = nextTend;
         nextTend++;
     }
@@ -120,10 +113,10 @@ contract Loan is Owned {
     }
     
     function minTender() view public returns (string, string, uint, uint, string, string) {
-        if (TendAccts.length == 4) {
+        if (TendAccts.length > 0) {
             uint j = 0; 
             uint minT = Organisation[0].tender_val;
-            for (uint i = 1; i<4; i++) {
+            for (uint i = 1; i < TendAccts.length; i++) {
                 if (Organisation[i].tender_val < minT) {
                     minT = Organisation[i].tender_val;
                     j = i;
