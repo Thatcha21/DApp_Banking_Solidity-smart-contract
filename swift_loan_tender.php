@@ -825,7 +825,7 @@ if (!isset($_SESSION['login_user'])) {
 			$("#tenderTable tbody").empty();
 			PNB.getendid((err, count) => {
 				if (err) return console.log(err);
-				for (let i = 0; i < count; i++) {
+				for (let i = 0; i <= count; i++) {
 					PNB.getTend(i, (err, tend) => {
 						if (tend) {
 							let row = `
